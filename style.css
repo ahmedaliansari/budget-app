@@ -1,0 +1,161 @@
+/* (A) ENTIRE PAGE */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  max-width: 600px;
+  margin: 8rem auto;
+  background: #f2f2f2;
+}
+#main{
+  font-size: 2.5rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  color: #003564;
+  
+}
+/* (B) SUMMARY */
+/* (B1) WRAPPER */
+#summary {
+  display: grid;
+  grid-template-areas: "b b" "i e";
+  grid-gap: 10px;
+  padding: 20px;
+  font-weight: 700;
+  background: #104879;
+}
+#balance, #income, #expense { padding: 10px; }
+#balance { grid-area: b; }
+#income { grid-area: i; }
+#expense { grid-area: e; }
+#balancehead{
+  text-align: center;
+  font-size:  2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* (B2) BALANCE */
+#balancehead { color: #ffffff; }
+#balanceAmt {
+  font-size: 58px;
+  color: #fff;
+}
+
+#balance, #income, #expense { padding: 10px; }
+#balance { grid-area: b; }
+#income { grid-area: i; }
+#expense { grid-area: e; }
+
+#balanceTxt {
+  margin: 1rem 0;
+  margin: 1rem 0;
+  
+
+}
+
+/* (B2) BALANCE */
+#balanceTxt { color: #a5bee9; }
+#balanceAmt {
+  font-size: 38px;
+  color: #fff;
+}
+
+/* (B3) INCOME & EXPENSE */
+#income, #expense {
+  border-radius: 10px;
+  background: #fff;
+}
+#incomeAmt, #expenseAmt { font-size: 28px; }
+#incomeTxt { color: #92e7a1; }
+#expenseTxt { color: #e5a5a5; }
+#incomeAmt { color: #41b941; }
+#expenseAmt { color: #d72f2f; }
+
+/* (C) ENTRIES LIST */
+#entries { padding: 10px; }
+#dummy, .eDel, .eEdit { cursor: pointer; }
+#dummy, .entry {
+  border-radius: 15px;
+  margin: 20px 0;
+  padding: 20px;
+}
+#dummy {
+  font-weight: 700;
+  color: #959595;
+  border: 3px dashed #d3d3d3;
+}
+.entry {
+  display: flex;
+  background: #fff;
+  align-items: center;
+  font-size: 18px;
+}
+.eDel, .eTxt, .eAmt, .eEdit { padding: 0 10px; }
+.eDel, .eAmt, .eEdit { font-weight: 700; }
+.eDel { color: #d72f2f; }
+.eTxt { flex-grow: 1; }
+.eEdit, .income .eTxt, .expense .eTxt { color: #959595; }
+.income .eAmt { color: #41b941; }
+.expense .eAmt { color: #d72f2f; }
+
+/* (D) ITEM FORM */
+#form {
+  /* (D1) FULLSCREEN */
+  position: fixed;
+  top: 0; left: 0; z-index: 999;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* (D2) CENTERED CONTAINER */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* (D3) HIDDEN BY DEFAULT */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* (D4) SHOW FORM */
+#form.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* (D5) FORM ITSELF */
+#form form {
+  min-width: 400px;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+}
+
+/* (D6) FORM ELEMENTS */
+#formEnd, #formGo { cursor: pointer; }
+#formEnd {
+  position: absolute;
+  top: 0; right: 0;
+  padding: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: #ab2020;
+}
+#form label, #form input, #form select {
+  display: block;
+  width: 100%;
+}
+#form label {
+  margin: 10px 0;
+  color: #b3b3b3;
+}
+#form input, #form select { padding: 15px; }
+#formGo {
+  margin-top: 20px;
+  border: 0;
+  color: #fff;
+  background: #1f3e95;
+}
