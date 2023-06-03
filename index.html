@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TITLE + CHARSET + DESCRIPTION + VIEWPORT + FAVICON -->
+    <title>JS Budget</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Budget Planner">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- ANDROID + CHROME + APPLE + WINDOWS APP -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="white">
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Budget">
+    <meta name="msapplication-TileImage" content="icon-512.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- WEB APP MANIFEST -->
+    <!-- https://web.dev/add-manifest/ -->
+    <link rel="manifest" href="main.json">
+
+    <!-- SERVICE WORKER -->
+    <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("worker.js");
+    }
+    </script>
+
+    <!-- STYLESHEET + JAVASCRIPT -->
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div id="main">Ahmed Budget Calculator</div>
+    <br>
+    <br>
+    <!-- (A) SUMMARY -->
+    <div id="summary">
+      <!-- (A1) BALANCE -->
+      <div id="balance">
+        <div id="balancehead">Budget App</div>
+        <div id="balanceTxt">Current Balance</div>
+        <div id="balanceAmt">$0</div>
+      </div>
+
+      <!-- (A2) INCOME -->
+      <div id="income">
+        <div id="incomeTxt">Income</div>
+        <div id="incomeAmt">$0</div>
+      </div>
+
+      <!-- (A3) EXPENSE -->
+      <div id="expense">
+        <div id="expenseTxt">Expense</div>
+        <div id="expenseAmt">$0</div>
+      </div>
+    </div>
+
+    <!-- (B) ENTRIES LIST -->
+    <div id="entries">
+      <div id="dummy" onclick="bg.toggle(true)">New Budjet Entry</div>
+      <div id="list"></div>
+    </div>
+
+    <!-- (C) ENTRY FORM -->
+    <div id="form"><form onsubmit="return bg.save()">
+      <div id="formEnd" onclick="bg.toggle(false)">X</div>
+      <input type="hidden" id="formID">
+      <label>Income/Expense</label>
+      <select id="formSign" required>
+        <option value="+">Income</option>
+        <option value="-">Expense</option>
+      </select>
+      <label>Description</label>
+      <input type="text" id="formTxt" required>
+      <label>Amount</label>
+      <input type="number" id="formAmt" step="0.01" required>
+      <input type="submit" value="Save" id="formGo">
+    </form></div>
+  </body>
+</html>
